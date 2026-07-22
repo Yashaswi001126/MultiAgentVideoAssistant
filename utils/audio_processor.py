@@ -11,6 +11,9 @@ def download_youtube_audio(url :str) ->str:
         "format": "bestaudio/best",
         "outtmpl": output_path,
         "windowsfilenames": True,  # sanitize video titles for Windows-illegal filename characters
+        "extractor_args": {
+            "youtube": {"player_client": ["tv", "android", "web"]}
+        },
         "postprocessors": [
             {
                 "key": "FFmpegExtractAudio",
